@@ -13,10 +13,12 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    options_for_select
   end
 
   # GET /books/1/edit
   def edit
+    options_for_select
   end
 
   # POST /books or /books.json
@@ -57,6 +59,11 @@ class BooksController < ApplicationController
   end
 
   private
+    
+    def options_for_select
+      @authors_options = Author.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
@@ -67,3 +74,4 @@ class BooksController < ApplicationController
       params.require(:book).permit(:name, :stock, :author_id, :category_id)
     end
 end
+
