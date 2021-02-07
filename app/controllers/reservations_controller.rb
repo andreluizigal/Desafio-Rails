@@ -13,10 +13,16 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    options_for_books
+    options_for_clients
+    options_for_librarians
   end
 
   # GET /reservations/1/edit
   def edit
+    options_for_books
+    options_for_clients
+    options_for_librarians
   end
 
   # POST /reservations or /reservations.json
@@ -57,6 +63,19 @@ class ReservationsController < ApplicationController
   end
 
   private
+
+    def options_for_books
+      @book_options = Book.all
+    end
+
+    def options_for_clients
+      @client_options = Client.all
+    end
+
+    def options_for_librarians
+      @librarian_options = Librarian.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
