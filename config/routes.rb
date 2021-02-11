@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  resources :reservations
+  devise_for :librarians
   get 'home/index'
 
   root 'home#index'
 
-  resources :reservations
-  resources :librarians
   resources :books
   resources :clients
   resources :categories

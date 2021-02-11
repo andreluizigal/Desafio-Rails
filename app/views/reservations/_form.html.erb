@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= form.label :librarian_id %>
-    <%= collection_select(:reservation, :librarian_id, @librarian_options, :id, :name) %>
+    <%= collection_select(:reservation, :librarian_id, @librarian_options, :id, :email) %>
 
   </div>
 

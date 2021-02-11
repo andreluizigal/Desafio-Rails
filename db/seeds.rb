@@ -22,7 +22,3 @@ puts "Criando livros..."
 end
 puts "Criando livros... [OK}"
 
-
-puts "Criando bibliotecário..."
-Librarian.create(name: Faker::Name.name)
-puts "Criando bibliotecário... [OK]  (#{Librarian.last.name})"
