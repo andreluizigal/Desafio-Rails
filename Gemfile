@@ -67,3 +67,5 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'adminlte2-rails'
 
 gem 'devise'
+
+gem 'ransack'
