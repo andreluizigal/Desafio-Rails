@@ -24,13 +24,14 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    
 
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_reservation_path, alert: "#{@reservation.errors[:base].to_s.replace("'", "")}, #{@reservation.errors[:base].to_s.class}"}
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
