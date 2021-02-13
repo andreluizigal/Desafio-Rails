@@ -15,13 +15,11 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     options_for_select
-    options_for_category
   end
 
   # GET /books/1/edit
   def edit
     options_for_select
-    options_for_category
   end
 
   # POST /books or /books.json
@@ -65,9 +63,6 @@ class BooksController < ApplicationController
     
     def options_for_select
       @author_options = Author.all
-    end
-
-    def options_for_category
       @category_options = Category.all
     end
 
